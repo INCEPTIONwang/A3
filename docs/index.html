@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="A3: Dynamic Execution Commitment of Vision-Language-Action Models">
+  <meta name="keywords" content="A3, Vision-Language-Action, VLA, Adaptive Action Acceptance, Dynamic Execution Commitment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A3 | Dynamic Execution Commitment of Vision-Language-Action Models</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+  <nav class="navbar page-nav" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+      <div class="navbar-brand">
+        <a class="navbar-item brand-mark" href="#">A<sup>3</sup></a>
+        <button class="navbar-burger" type="button" aria-label="menu" aria-expanded="false" data-target="page-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div id="page-menu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#abstract">Abstract</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#visualizations">Visualizations</a>
+          <a class="navbar-item" href="#bibtex">BibTeX</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero title-hero">
+    <div class="hero-body">
+      <div class="container is-max-widescreen">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="title is-2 publication-title">
+              Dynamic Execution Commitment of Vision-Language-Action Models
+            </h1>
+
+            <p class="subtitle is-4 paper-short-name">A<sup>3</sup>: Adaptive Action Acceptance for VLA Execution</p>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Feng Chen<sup>1*</sup>,</span>
+              <span class="author-block">Xianghui Wang<sup>2*</sup>,</span>
+              <span class="author-block">Yuxuan Chen<sup>3</sup>,</span>
+              <span class="author-block">Boying Li<sup>4</sup>,</span>
+              <span class="author-block">Yefei He<sup>5</sup>,</span>
+              <span class="author-block">Zeyu Zhang<sup>5</sup>,</span>
+              <span class="author-block">Yicheng Wu<sup>6</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-affiliations">
+              <span><sup>1</sup>University of Adelaide</span>
+              <span><sup>2</sup>Sichuan University</span>
+              <span><sup>3</sup>Shanghai Jiao Tong University</span>
+              <span><sup>4</sup>Monash University</span>
+              <span><sup>5</sup>Zhejiang University</span>
+              <span><sup>6</sup>Imperial College London</span>
+            </div>
+            <div class="is-size-6 contribution-note">* Equal contribution</div>
+
+            <div class="link-block">
+              <a class="button is-rounded is-dark is-small" href="https://arxiv.org/abs/2605.11567">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>arXiv</span>
+              </a>
+              <a class="button is-rounded is-dark is-small" href="https://github.com/INCEPTIONwang/Spec">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./assets/images/teaser.png" alt="A3 qualitative rollout teaser" class="main-figure">
+        <p class="fig-caption">
+          <b>Adaptive execution commitment.</b>
+          A<sup>3</sup> dynamically adjusts how many predicted VLA actions are committed before replanning,
+          using longer horizons in free-space motion and shorter horizons near contact-sensitive phases.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="metric-band">
+    <div class="container is-max-desktop">
+      <div class="highlights">
+        <div class="hl-item">
+          <div class="hl-num">54<span class="hl-unit">%</span></div>
+          <div class="hl-desc">Longer LIBERO Commitment</div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">+10.2</div>
+          <div class="hl-desc">Robustness Gain</div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">84.6<span class="hl-unit">%</span></div>
+          <div class="hl-desc">Real-world Avg. Success</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="abstract">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Abstract</h2>
+      <div class="content has-text-justified reading-width">
+        <p>
+          Vision-Language-Action models often predict a short chunk of future actions in one forward pass,
+          but deciding how many actions to execute before replanning remains a brittle fixed-horizon choice.
+          A<sup>3</sup> introduces <b>Adaptive Action Acceptance</b>, a self-speculative prefix
+          verification mechanism for dynamic execution commitment. A<sup>3</sup> samples candidate action
+          chunks, estimates trajectory-wise consensus, and verifies the selected draft with two constraints:
+          consensus-ordered conditional invariance and prefix-closed sequential consistency. The final
+          execution horizon emerges as the longest verified prefix, eliminating manual horizon tuning while
+          preserving the trade-off between execution robustness and inference throughput.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Method</h2>
+
+      <figure class="centered-figure">
+        <img src="./assets/images/method-overview.png" alt="Overview of Adaptive Action Acceptance">
+        <figcaption class="fig-caption">
+          <b>Overview of A<sup>3</sup>.</b>
+          Candidate action chunks are sampled, mapped into induced trajectory space, scored for consensus,
+          and verified through dual hierarchical constraints to determine the executable prefix.
+        </figcaption>
+      </figure>
+
+      <div class="content reading-width method-list">
+        <p>A<sup>3</sup> is organized around three core pieces:</p>
+        <ul>
+          <li><b>Mode-aware trajectory consensus.</b> Candidate chunks are evaluated in induced trajectory space so consensus reflects rollout-level stability rather than raw per-step action variance.</li>
+          <li><b>Dual hierarchical verification.</b> A<sup>3</sup> combines consensus-ordered conditional invariance with prefix-closed sequential consistency.</li>
+          <li><b>Emergent commitment length.</b> The committed horizon is the longest verified action prefix, produced without task-specific fixed-horizon tuning.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="results">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3 section-title has-text-centered">Results</h2>
+
+      <h4 class="title is-5 has-text-centered">Dynamic Horizon Comparison</h4>
+      <div class="table-wrapper">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Backbone</th>
+              <th>Method</th>
+              <th>LIBERO Avg. (%)</th>
+              <th>LIBERO Len.</th>
+              <th>MetaWorld Avg. (%)</th>
+              <th>MetaWorld Len.</th>
+              <th>ManiSkill Avg. (%)</th>
+              <th>ManiSkill Len.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3">pi-0</td>
+              <td>Original</td>
+              <td>95.1</td>
+              <td>5.0</td>
+              <td>78.0</td>
+              <td>3.0</td>
+              <td>77.6</td>
+              <td>5.0</td>
+            </tr>
+            <tr>
+              <td>MoH</td>
+              <td>95.1</td>
+              <td>5.0</td>
+              <td>79.4</td>
+              <td>3.0</td>
+              <td>78.0</td>
+              <td>5.0</td>
+            </tr>
+            <tr class="ours">
+              <td><b>A<sup>3</sup> (Ours)</b></td>
+              <td><b>95.3</b></td>
+              <td><b>9.4</b></td>
+              <td>79.2</td>
+              <td><b>3.2</b></td>
+              <td><b>78.6</b></td>
+              <td><b>6.2</b></td>
+            </tr>
+            <tr>
+              <td rowspan="5">pi-0.5</td>
+              <td>Original</td>
+              <td>97.9</td>
+              <td>6.3</td>
+              <td>77.8</td>
+              <td>3.0</td>
+              <td>88.1</td>
+              <td>5.0</td>
+            </tr>
+            <tr>
+              <td>MoH</td>
+              <td>97.7</td>
+              <td>5.0</td>
+              <td>78.4</td>
+              <td>3.3</td>
+              <td>88.4</td>
+              <td>5.0</td>
+            </tr>
+            <tr>
+              <td>EverydayVLA</td>
+              <td>97.6</td>
+              <td>6.8</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>AutoHorizon</td>
+              <td>96.9</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr class="ours">
+              <td><b>A<sup>3</sup> (Ours)</b></td>
+              <td><b>98.1</b></td>
+              <td><b>9.7</b></td>
+              <td><b>79.4</b></td>
+              <td><b>4.5</b></td>
+              <td><b>89.1</b></td>
+              <td><b>5.2</b></td>
+            </tr>
+            <tr>
+              <td rowspan="2">GR00T</td>
+              <td>Original</td>
+              <td>90.1</td>
+              <td>4.7</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr class="ours">
+              <td><b>A<sup>3</sup> (Ours)</b></td>
+              <td><b>92.9</b></td>
+              <td>4.5</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="title is-5 has-text-centered result-subtitle">Real-world Manipulation</h4>
+      <div class="table-wrapper compact-table">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Exec Horizon</th>
+              <th>FlipMug</th>
+              <th>TapeBox</th>
+              <th>HangMug</th>
+              <th>StackCube</th>
+              <th>Avg. Success</th>
+              <th>Inference Calls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Fixed</td><td>5</td><td>50.0</td><td>35.0</td><td>25.0</td><td>0.0</td><td>27.5</td><td>91.5</td></tr>
+            <tr><td>Fixed</td><td>10</td><td>70.0</td><td>100.0</td><td>35.0</td><td>66.7</td><td>67.9</td><td>32.7</td></tr>
+            <tr><td>Fixed</td><td>15</td><td>95.0</td><td>100.0</td><td>35.0</td><td>86.7</td><td>79.2</td><td>17.7</td></tr>
+            <tr><td>Fixed</td><td>20</td><td>90.0</td><td>95.0</td><td>35.0</td><td>73.3</td><td>73.3</td><td>12.4</td></tr>
+            <tr class="ours"><td><b>A<sup>3</sup> (Ours)</b></td><td><b>13.5</b></td><td><b>95.0</b></td><td><b>100.0</b></td><td><b>60.0</b></td><td>83.3</td><td><b>84.6</b></td><td>17.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="centered-figure result-figure">
+        <img src="./assets/images/horizon-analysis.png" alt="Execution horizon trade-off analysis">
+        <figcaption class="fig-caption">
+          Fixed horizons expose the trade-off between success rate and forward calls; A<sup>3</sup> adapts the
+          committed prefix to the current state.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="visualizations">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">Visualizations</h2>
+
+      <figure class="centered-figure">
+        <img src="./assets/images/execution-visualization.png" alt="Execution horizon visualizations across real-world tasks">
+        <figcaption class="fig-caption">
+          A<sup>3</sup> shortens the committed horizon around contact-rich stages such as grasping, placing,
+          and precise alignment, while using longer horizons during free-space motion.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="bibtex">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-title has-text-centered">BibTeX</h2>
+      <div class="bibtex-actions">
+        <button class="button is-small is-dark is-rounded" type="button" data-copy-bibtex>
+          <span class="icon"><i class="fas fa-copy"></i></span>
+          <span>Copy</span>
+        </button>
+      </div>
+      <pre class="bibtex-box"><code id="bibtex-code">@article{chen2026dynamic,
+  title={Dynamic Execution Commitment of Vision-Language-Action Models},
+  author={Chen, Feng and Wang, Xianghui and Chen, Yuxuan and Li, Boying and He, Yefei and Zhang, Zeyu and Wu, Yicheng},
+  journal={arXiv preprint arXiv:2605.11567},
+  year={2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>

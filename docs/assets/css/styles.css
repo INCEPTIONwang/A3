@@ -1,0 +1,389 @@
+:root {
+  --ink: #172126;
+  --muted: #66727a;
+  --line: #d8e0e3;
+  --paper: #ffffff;
+  --wash: #f3f7f6;
+  --mist: #e9f1ef;
+  --soft-blue: #edf4fb;
+  --accent: #0c6b68;
+  --accent-strong: #083d3c;
+  --signal: #b75d2a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Google Sans", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.page-nav {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  font-family: "Google Sans", Arial, sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.brand-mark {
+  align-items: center;
+  color: var(--accent-strong);
+  display: flex;
+  font-weight: 700;
+}
+
+.brand-mark::before {
+  background: var(--signal);
+  content: "";
+  display: inline-block;
+  height: 0.7rem;
+  margin-right: 0.45rem;
+  width: 0.7rem;
+}
+
+.brand-mark sup,
+.paper-short-name sup {
+  font-size: 0.62em;
+  line-height: 0;
+  margin-left: 0.03em;
+}
+
+.navbar-item.is-active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.title-hero {
+  background: linear-gradient(180deg, var(--wash) 0%, #fff 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.title-hero .hero-body {
+  padding: 3.2rem 1.5rem 2.4rem;
+}
+
+.hero-grid {
+  align-items: end;
+  display: block;
+}
+
+.hero-copy {
+  max-width: 1060px;
+}
+
+.publication-title,
+.publication-authors,
+.publication-affiliations,
+.paper-short-name,
+.contribution-note,
+.link-block,
+.highlights {
+  font-family: "Google Sans", Arial, sans-serif;
+}
+
+.publication-title {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 2.55rem;
+  letter-spacing: 0;
+  line-height: 1.12;
+  margin-bottom: 0.85rem;
+  max-width: 1040px;
+}
+
+.paper-short-name {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1.05rem;
+  margin-top: 0.3rem;
+}
+
+.publication-authors {
+  line-height: 1.75;
+  max-width: 860px;
+}
+
+.publication-affiliations {
+  color: #4b5563;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  justify-content: flex-start;
+  margin-top: 0.4rem;
+}
+
+.contribution-note {
+  color: #7a7f86;
+  margin-top: 0.25rem;
+}
+
+.link-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  margin-top: 1.15rem;
+}
+
+.link-block .button {
+  border-radius: 4px;
+}
+
+.teaser .hero-body {
+  padding-top: 2rem;
+  padding-bottom: 1.3rem;
+}
+
+.main-figure,
+.centered-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.fig-caption {
+  color: #4d5960;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0.75rem auto 0;
+  max-width: 900px;
+  text-align: center;
+}
+
+.metric-band {
+  background: var(--accent-strong);
+  border-bottom: 0;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0;
+}
+
+.hl-item {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 1.25rem 1rem 1.35rem;
+  text-align: center;
+}
+
+.hl-item:last-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.hl-num {
+  color: #fff;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.hl-unit {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.hl-desc {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.88rem;
+  margin-top: 0.35rem;
+}
+
+.section {
+  border-top: 1px solid rgba(216, 224, 227, 0.65);
+  padding: 3rem 1.5rem;
+}
+
+.section-title,
+.title.is-5 {
+  font-family: "Google Sans", Arial, sans-serif;
+}
+
+.section-title {
+  color: var(--accent-strong);
+  font-size: 1.55rem;
+  margin-bottom: 1.4rem;
+  text-align: left !important;
+}
+
+.section-title::after {
+  background: var(--signal);
+  content: "";
+  display: block;
+  height: 3px;
+  margin-top: 0.55rem;
+  width: 3.5rem;
+}
+
+.reading-width {
+  margin: 0;
+  max-width: 820px;
+}
+
+.content p {
+  line-height: 1.82;
+  text-rendering: optimizeLegibility;
+}
+
+.method-list {
+  margin-top: 2rem;
+}
+
+.method-list ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.method-list li {
+  border-left: 3px solid var(--accent);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+  padding-left: 0.9rem;
+}
+
+.centered-figure {
+  margin: 0;
+  max-width: 980px;
+  text-align: left;
+}
+
+.result-figure {
+  margin: 2.1rem auto 0;
+  max-width: 880px;
+  text-align: center;
+}
+
+.result-subtitle {
+  margin-top: 2.4rem;
+}
+
+.table-wrapper {
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.compact-table {
+  max-width: 980px;
+}
+
+.results-table {
+  border-collapse: collapse;
+  font-family: "Google Sans", Arial, sans-serif;
+  font-size: 0.88rem;
+  margin: 1rem auto;
+  min-width: 860px;
+  width: 100%;
+}
+
+.results-table th,
+.results-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.45rem 0.55rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.results-table thead th {
+  background: var(--mist);
+  border-bottom: 2px solid #8aa19f;
+  color: #111827;
+  font-weight: 700;
+}
+
+.results-table td[rowspan] {
+  background: #fbfcfe;
+  font-weight: 700;
+}
+
+.results-table .ours td {
+  background: #fff5ed;
+}
+
+.bibtex-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.6rem;
+}
+
+.bibtex-box {
+  background: #142023;
+  border-radius: 4px;
+  color: #dce7e7;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 760px;
+  overflow-x: auto;
+  padding: 1rem 1.2rem;
+}
+
+.page-footer {
+  background: #fafafa;
+  padding: 1.5rem;
+}
+
+.page-footer p {
+  color: #626a73;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .title-hero .hero-body {
+    padding: 2.2rem 1rem 1.6rem;
+  }
+
+  .hero-grid {
+    display: block;
+  }
+
+  .publication-title {
+    font-size: 2rem;
+  }
+
+  .publication-affiliations,
+  .link-block {
+    justify-content: flex-start;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .hl-item,
+  .hl-item:last-child {
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .hl-num {
+    font-size: 1.9rem;
+  }
+
+  .section {
+    padding: 2.2rem 1rem;
+  }
+
+  .fig-caption {
+    max-width: 100%;
+  }
+
+  .results-table {
+    font-size: 0.78rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 0.35rem 0.4rem;
+  }
+}
