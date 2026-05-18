@@ -75,7 +75,7 @@
                 <span class="icon"><i class="ai ai-arxiv"></i></span>
                 <span>arXiv</span>
               </a>
-              <a class="button is-rounded is-dark is-small" href="https://github.com/INCEPTIONwang/Spec">
+              <a class="button is-rounded is-dark is-small" href="https://github.com/INCEPTIONwang/A3">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>Code</span>
               </a>
@@ -86,14 +86,14 @@
     </div>
   </section>
 
-  <section class="hero teaser">
+  <section class="hero result-overview">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./assets/images/teaser.png" alt="A3 qualitative rollout teaser" class="main-figure">
+        <img src="./assets/images/horizon-analysis.png" alt="Execution horizon trade-off analysis" class="main-figure">
         <p class="fig-caption">
-          <b>Adaptive execution commitment.</b>
-          A<sup>3</sup> dynamically adjusts how many predicted VLA actions are committed before replanning,
-          using longer horizons in free-space motion and shorter horizons near contact-sensitive phases.
+          <b>Fixed-horizon trade-off.</b>
+          Longer execution horizons reduce forward calls but can sharply degrade task success, motivating
+          adaptive execution commitment.
         </p>
       </div>
     </div>
@@ -161,22 +161,29 @@
   </section>
 
   <section class="section" id="results">
-    <div class="container is-max-widescreen">
+    <div class="container is-max-desktop">
       <h2 class="title is-3 section-title has-text-centered">Results</h2>
+    </div>
 
+    <div class="container is-max-widescreen">
       <h4 class="title is-5 has-text-centered">Dynamic Horizon Comparison</h4>
-      <div class="table-wrapper">
-        <table class="results-table">
+      <div class="table-wrapper dynamic-table">
+        <table class="results-table grouped-table">
           <thead>
             <tr>
-              <th>Backbone</th>
-              <th>Method</th>
-              <th>LIBERO Avg. (%)</th>
-              <th>LIBERO Len.</th>
-              <th>MetaWorld Avg. (%)</th>
-              <th>MetaWorld Len.</th>
-              <th>ManiSkill Avg. (%)</th>
-              <th>ManiSkill Len.</th>
+              <th rowspan="2">Backbone</th>
+              <th rowspan="2">Method</th>
+              <th class="super-group" colspan="2"><span>LIBERO</span></th>
+              <th class="super-group" colspan="2"><span>MetaWorld</span></th>
+              <th class="super-group" colspan="2"><span>ManiSkill</span></th>
+            </tr>
+            <tr>
+              <th>Avg. (%)</th>
+              <th>Len.</th>
+              <th>Avg. (%)</th>
+              <th>Len.</th>
+              <th>Avg. (%)</th>
+              <th>Len.</th>
             </tr>
           </thead>
           <tbody>
@@ -302,11 +309,103 @@
         </table>
       </div>
 
+      <h4 class="title is-5 has-text-centered result-subtitle">Robustness Under State Perturbations</h4>
+      <div class="table-wrapper robustness-table">
+        <table class="results-table grouped-table">
+          <thead>
+            <tr>
+              <th rowspan="3">Method</th>
+              <th class="super-group" colspan="2" rowspan="2">Original</th>
+              <th class="super-group" colspan="6"><span>Masking</span></th>
+              <th class="super-group" colspan="6"><span>Gaussian Blur</span></th>
+            </tr>
+            <tr>
+              <th class="sub-group" colspan="2"><span>50%</span></th>
+              <th class="sub-group" colspan="2"><span>55%</span></th>
+              <th class="sub-group" colspan="2"><span>60%</span></th>
+              <th class="sub-group" colspan="2"><span>k=11</span></th>
+              <th class="sub-group" colspan="2"><span>k=13</span></th>
+              <th class="sub-group" colspan="2"><span>k=15</span></th>
+            </tr>
+            <tr class="metric-row">
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+              <th>Avg. ↑</th>
+              <th>Len.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Original</td>
+              <td>97.9</td>
+              <td>6.3</td>
+              <td>83.2</td>
+              <td>6.3</td>
+              <td>66.6</td>
+              <td>6.3</td>
+              <td>40.8</td>
+              <td>6.3</td>
+              <td>92.6</td>
+              <td>6.3</td>
+              <td>79.6</td>
+              <td>6.3</td>
+              <td>55.8</td>
+              <td>6.3</td>
+            </tr>
+            <tr class="ours">
+              <td><b>A<sup>3</sup> (Ours)</b></td>
+              <td><b>98.1</b></td>
+              <td><b>9.7</b></td>
+              <td><b>89.0</b></td>
+              <td><b>8.9</b></td>
+              <td><b>72.6</b></td>
+              <td><b>7.5</b></td>
+              <td><b>51.0</b></td>
+              <td>6.3</td>
+              <td><b>96.8</b></td>
+              <td><b>9.6</b></td>
+              <td><b>89.6</b></td>
+              <td><b>8.9</b></td>
+              <td><b>66.0</b></td>
+              <td><b>8.1</b></td>
+            </tr>
+            <tr class="gain-row">
+              <td>Δ vs. Original</td>
+              <td>+0.2</td>
+              <td>+3.4</td>
+              <td>+5.8</td>
+              <td>+2.6</td>
+              <td>+6.0</td>
+              <td>+1.2</td>
+              <td>+10.2</td>
+              <td>0</td>
+              <td>+4.2</td>
+              <td>+3.3</td>
+              <td>+10.0</td>
+              <td>+2.6</td>
+              <td>+10.2</td>
+              <td>+1.8</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <figure class="centered-figure result-figure">
-        <img src="./assets/images/horizon-analysis.png" alt="Execution horizon trade-off analysis">
+        <img src="./assets/images/result-summary.png" alt="A3 benchmark results across horizons and forward calls">
         <figcaption class="fig-caption">
-          Fixed horizons expose the trade-off between success rate and forward calls; A<sup>3</sup> adapts the
-          committed prefix to the current state.
+          <b>Benchmark result summary.</b>
+          A<sup>3</sup> matches or improves success while reducing forward calls through adaptive committed
+          horizons across LIBERO, MetaWorld, and ManiSkill.
         </figcaption>
       </figure>
     </div>

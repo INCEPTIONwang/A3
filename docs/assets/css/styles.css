@@ -135,7 +135,7 @@ body {
   border-radius: 4px;
 }
 
-.teaser .hero-body {
+.result-overview .hero-body {
   padding-top: 2rem;
   padding-bottom: 1.3rem;
 }
@@ -275,6 +275,78 @@ body {
   max-width: 980px;
 }
 
+.dynamic-table {
+  max-width: 840px;
+}
+
+.dynamic-table .results-table {
+  font-size: 0.82rem;
+  min-width: 720px;
+}
+
+.dynamic-table .results-table th,
+.dynamic-table .results-table td {
+  padding: 0.38rem 0.42rem;
+}
+
+.dynamic-table .results-table th:nth-child(2),
+.dynamic-table .results-table td:nth-child(2) {
+  max-width: 120px;
+}
+
+.robustness-table {
+  max-width: 1180px;
+}
+
+.robustness-table .results-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.82rem;
+  min-width: 1080px;
+}
+
+.grouped-table thead th {
+  border-bottom: 0;
+}
+
+.grouped-table thead th.super-group,
+.grouped-table thead th.sub-group {
+  padding-bottom: 0.22rem;
+}
+
+.grouped-table thead th.super-group > span,
+.grouped-table thead th.sub-group > span {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 0.34rem;
+}
+
+.grouped-table thead th.super-group > span {
+  border-bottom: 2px solid #78928d;
+  width: calc(100% - 1rem);
+}
+
+.grouped-table thead th.sub-group > span {
+  border-bottom: 1px solid #aebfbc;
+  width: calc(100% - 0.7rem);
+}
+
+.robustness-table thead tr:first-child th {
+  background: #e4eeee;
+}
+
+.robustness-table thead tr:nth-child(2) th {
+  background: #eef5f3;
+}
+
+.robustness-table .results-table thead .metric-row th {
+  background: #f7faf9;
+  border-bottom: 2px solid #8aa19f;
+  color: #5b6770;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
 .results-table {
   border-collapse: collapse;
   font-family: "Google Sans", Arial, sans-serif;
@@ -288,7 +360,7 @@ body {
 .results-table td {
   border-bottom: 1px solid var(--line);
   padding: 0.45rem 0.55rem;
-  text-align: center;
+  text-align: center !important;
   vertical-align: middle;
 }
 
@@ -299,6 +371,11 @@ body {
   font-weight: 700;
 }
 
+.results-table.grouped-table thead th.super-group,
+.results-table.grouped-table thead th.sub-group {
+  border-bottom: 0;
+}
+
 .results-table td[rowspan] {
   background: #fbfcfe;
   font-weight: 700;
@@ -306,6 +383,11 @@ body {
 
 .results-table .ours td {
   background: #fff5ed;
+}
+
+.results-table .gain-row td {
+  color: var(--signal);
+  font-weight: 700;
 }
 
 .bibtex-actions {
